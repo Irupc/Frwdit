@@ -31,34 +31,23 @@ async def run(bot, message):
     async for message in bot.USER.search_messages(chat_id=FROM,offset=Config.SKIP_NO,limit=Config.LIMIT,filter=FILTER):
         try:
             if message.video:
-                print("---------------------Video---------------------")
-                print(message)
-                print("---------------------VideoEnd---------------------")
                 file_name = message.video.file_name
                 try:
                     file_caption = message.caption
                 except:
                     file_caption = "Not Found"
             elif message.document:
-                print("---------------------documnet---------------------")
-                print(message)
-                print("---------------------documnetEnd---------------------")
                 file_name = message.document.file_name
                 try:
-                    file_caption = message.document.caption
+                    file_caption = message.caption
                 except:
                     file_caption = "Not Found"
-                file_caption = "Not Found"
             elif message.photo:
-                print("----------------------photo---------------------")
-                print(message)
-                print("----------------------photoEnd---------------------")
                 file_name = ""
                 try:
                     file_caption = message.caption
                 except:
                     file_caption = "Not Found"
-                file_caption = "Not Found"
             elif message.audio:
                 file_name = message.audio.file_name
             else:
@@ -66,7 +55,7 @@ async def run(bot, message):
             await bot.copy_message(
                 chat_id=TO,
                 from_chat_id=FROM,
-                parse_mode="md",       
+                parse_mode="html",       
                 caption=Translation.CAPTION.format(file_caption),
                 message_id=message.message_id
             )
@@ -77,7 +66,7 @@ async def run(bot, message):
             await bot.copy_message(
                 chat_id=TO,
                 from_chat_id=FROM,
-                parse_mode="md",       
+                parse_mode="html",       
                 caption=Translation.CAPTION.format(file_caption),
                 message_id=message.message_id
             )
