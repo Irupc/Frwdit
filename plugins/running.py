@@ -35,22 +35,25 @@ async def run(bot, message):
                 try:
                     file_caption = message.caption
                 except:
-                    file_caption = "Not Found"
+                    file_caption = None
             elif message.document:
                 file_name = message.document.file_name
                 try:
                     file_caption = message.caption
                 except:
-                    file_caption = "Not Found"
+                    file_caption = None
             elif message.photo:
                 file_name = ""
                 try:
                     file_caption = message.caption
                 except:
-                    file_caption = "Not Found"
+                    file_caption = None
             elif message.audio:
                 file_name = message.audio.file_name
-                file_caption = None
+                try:
+                    file_caption = message.caption
+                except:
+                    file_caption = None
             else:
                 file_name = None
                 file_caption = None
