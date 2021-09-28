@@ -32,8 +32,8 @@ async def run(bot, message):
         try:
             if message.video:
                 file_name = message.video.file_name
-                if message.video.caption is not None:
-                    file_caption = message.video.caption
+                if message.caption is not None:
+                    file_caption = message.caption
                 else:
                     file_caption = "Not Found"
             elif message.document:
