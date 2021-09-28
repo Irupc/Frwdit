@@ -32,8 +32,22 @@ async def run(bot, message):
         try:
             if message.video:
                 file_name = message.video.file_name
+                if message.video.caption is not None:
+                    file_caption = message.video.caption
+                else:
+                    file_caption = "Not Found"
             elif message.document:
                 file_name = message.document.file_name
+                if message.document.caption is not None:
+                    file_caption = message.document.caption
+                else:
+                    file_caption = "Not Found"
+            elif message.photo:
+                file_name = ""
+                if message.caption is not None:
+                    file_caption = message.caption
+                else:
+                    file_caption = "Not Found"
             elif message.audio:
                 file_name = message.audio.file_name
             else:
@@ -42,7 +56,7 @@ async def run(bot, message):
                 chat_id=TO,
                 from_chat_id=FROM,
                 parse_mode="md",       
-                caption=Translation.CAPTION.format(file_name),
+                caption=Translation.CAPTION.format(file_name).format(file_caption),
                 message_id=message.message_id
             )
             files_count += 1
@@ -53,7 +67,7 @@ async def run(bot, message):
                 chat_id=TO,
                 from_chat_id=FROM,
                 parse_mode="md",       
-                caption=Translation.CAPTION.format(file_name),
+                caption=Translation.CAPTION.format(file_name).format(file_caption),
                 message_id=message.message_id
             )
             files_count += 1
