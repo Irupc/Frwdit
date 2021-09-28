@@ -50,6 +50,7 @@ async def run(bot, message):
                     file_caption = None
             elif message.audio:
                 file_name = message.audio.file_name
+                print(message)
                 try:
                     file_caption = message.caption
                 except:
