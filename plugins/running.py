@@ -34,31 +34,30 @@ async def run(bot, message):
                 print("---------------------Video---------------------")
                 print(message)
                 print("---------------------VideoEnd---------------------")
-                #file_name = message.video.file_name
-                #if message.caption is not None:
-                #    file_caption = message.caption
-                #else:
-                #    file_caption = "Not Found"
-                file_caption = "Not Found"
+                file_name = message.video.file_name
+                try:
+                    file_caption = message.caption
+                except:
+                    file_caption = "Not Found"
             elif message.document:
                 print("---------------------documnet---------------------")
                 print(message)
                 print("---------------------documnetEnd---------------------")
                 file_name = message.document.file_name
-                #if message.document.caption is not None:
-                #    file_caption = message.document.caption
-                #else:
-                #    file_caption = "Not Found"
+                try:
+                    file_caption = message.document.caption
+                except:
+                    file_caption = "Not Found"
                 file_caption = "Not Found"
             elif message.photo:
                 print("----------------------photo---------------------")
                 print(message)
                 print("----------------------photoEnd---------------------")
                 file_name = ""
-                #if message.caption is not None:
-                #    file_caption = message.caption
-                #else:
-                #    file_caption = "Not Found"
+                try:
+                    file_caption = message.caption
+                except:
+                    file_caption = "Not Found"
                 file_caption = "Not Found"
             elif message.audio:
                 file_name = message.audio.file_name
@@ -68,7 +67,7 @@ async def run(bot, message):
                 chat_id=TO,
                 from_chat_id=FROM,
                 parse_mode="md",       
-                caption=Translation.CAPTION.format(file_name).format(file_caption),
+                caption=Translation.CAPTION.format(file_caption),
                 message_id=message.message_id
             )
             files_count += 1
@@ -79,7 +78,7 @@ async def run(bot, message):
                 chat_id=TO,
                 from_chat_id=FROM,
                 parse_mode="md",       
-                caption=Translation.CAPTION.format(file_name).format(file_caption),
+                caption=Translation.CAPTION.format(file_caption),
                 message_id=message.message_id
             )
             files_count += 1
