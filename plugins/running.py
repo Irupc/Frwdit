@@ -50,8 +50,10 @@ async def run(bot, message):
                     file_caption = "Not Found"
             elif message.audio:
                 file_name = message.audio.file_name
+                file_caption = None
             else:
                 file_name = None
+                file_caption = None
             await bot.copy_message(
                 chat_id=TO,
                 from_chat_id=FROM,
