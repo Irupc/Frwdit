@@ -31,23 +31,35 @@ async def run(bot, message):
     async for message in bot.USER.search_messages(chat_id=FROM,offset=Config.SKIP_NO,limit=Config.LIMIT,filter=FILTER):
         try:
             if message.video:
-                file_name = message.video.file_name
-                if message.caption is not None:
-                    file_caption = message.caption
-                else:
-                    file_caption = "Not Found"
+                print("---------------------Video---------------------")
+                print(message)
+                print("---------------------VideoEnd---------------------")
+                #file_name = message.video.file_name
+                #if message.caption is not None:
+                #    file_caption = message.caption
+                #else:
+                #    file_caption = "Not Found"
+                file_caption = "Not Found"
             elif message.document:
+                print("---------------------documnet---------------------")
+                print(message)
+                print("---------------------documnetEnd---------------------")
                 file_name = message.document.file_name
-                if message.document.caption is not None:
-                    file_caption = message.document.caption
-                else:
-                    file_caption = "Not Found"
+                #if message.document.caption is not None:
+                #    file_caption = message.document.caption
+                #else:
+                #    file_caption = "Not Found"
+                file_caption = "Not Found"
             elif message.photo:
+                print("----------------------photo---------------------")
+                print(message)
+                print("----------------------photoEnd---------------------")
                 file_name = ""
-                if message.caption is not None:
-                    file_caption = message.caption
-                else:
-                    file_caption = "Not Found"
+                #if message.caption is not None:
+                #    file_caption = message.caption
+                #else:
+                #    file_caption = "Not Found"
+                file_caption = "Not Found"
             elif message.audio:
                 file_name = message.audio.file_name
             else:
