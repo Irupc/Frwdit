@@ -35,40 +35,39 @@ async def run(bot, message):
                 file_name = message.video.file_name
                 try:
                     file_caption = message.caption
+                    file_name = f"<code>{message.video.file_name}</code>\n\n<b>♨️ Join our Groups 👇</b>\n━🇱🇰━◤ <b>iruPC.net</b> ◢━🇱🇰━\n ☯️ @iruPC\n ☯️\n<b>@MoIndex</b>\n ☯️ <b>@Top_Movie_Links</b>\n━🇱🇰━◤ <b>iruPC.net</b> ◢━🇱🇰━"
                 except:
                     file_caption = None
             elif message.document:
-                print(message)
-                file_name = message.document.file_name
+                file_name = f"<code>{message.document.file_name}</code>\n\n<b>♨️ Join our Groups 👇</b>\n━🇱🇰━◤ <b>iruPC.net</b> ◢━🇱🇰━\n ☯️ @iruPC\n ☯️\n<b>@MoIndex</b>\n ☯️ <b>@Top_Movie_Links</b>\n━🇱🇰━◤ <b>iruPC.net</b> ◢━🇱🇰━"
                 try:
                     file_caption = message.caption
                 except:
                     file_caption = None
             elif message.photo:
-                print(message)
-                file_name = ""
                 try:
                     file_caption = message.caption
                 except:
                     file_caption = None
+                file_name = f"{file_caption}\n\n<b>♨️ Join our Groups 👇</b>\n━🇱🇰━◤ <b>iruPC.net</b> ◢━🇱🇰━\n ☯️ @iruPC\n ☯️\n<b>@MoIndex</b>\n ☯️ <b>@Top_Movie_Links</b>\n━🇱🇰━◤ <b>iruPC.net</b> ◢━🇱🇰━"
             elif message.audio:
-                print(message)
-                file_name = message.audio.file_name
                 try:
                     file_caption = message.caption
+                    file_name = message.audio.file_name
                 except:
                     try:
                        file_caption = message.audio.caption
                     except:
                         file_caption = "Audio File"
+                        file_name = ""
             else:
                 file_name = None
-                file_caption = None
+                file_caption = f""
             await bot.copy_message(
                 chat_id=TO,
                 from_chat_id=FROM,
                 parse_mode="html",       
-                caption=Translation.CAPTION.format(file_caption),
+                caption=Translation.CAPTION.format(file_name),
                 message_id=message.message_id
             )
             files_count += 1
@@ -79,7 +78,7 @@ async def run(bot, message):
                 chat_id=TO,
                 from_chat_id=FROM,
                 parse_mode="html",       
-                caption=Translation.CAPTION.format(file_caption),
+                caption=Translation.CAPTION.format(file_name),
                 message_id=message.message_id
             )
             files_count += 1
