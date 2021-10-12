@@ -31,24 +31,28 @@ async def run(bot, message):
     async for message in bot.USER.search_messages(chat_id=FROM,offset=Config.SKIP_NO,limit=Config.LIMIT,filter=FILTER):
         try:
             if message.video:
+                print(message)
                 file_name = message.video.file_name
                 try:
                     file_caption = message.caption
                 except:
                     file_caption = None
             elif message.document:
+                print(message)
                 file_name = message.document.file_name
                 try:
                     file_caption = message.caption
                 except:
                     file_caption = None
             elif message.photo:
+                print(message)
                 file_name = ""
                 try:
                     file_caption = message.caption
                 except:
                     file_caption = None
             elif message.audio:
+                print(message)
                 file_name = message.audio.file_name
                 try:
                     file_caption = message.caption
