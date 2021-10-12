@@ -31,7 +31,6 @@ async def run(bot, message):
     async for message in bot.USER.search_messages(chat_id=FROM,offset=Config.SKIP_NO,limit=Config.LIMIT,filter=FILTER):
         try:
             if message.video:
-                print(message)
                 file_name = message.video.file_name
                 try:
                     file_caption = message.caption
