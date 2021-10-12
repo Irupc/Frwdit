@@ -34,11 +34,11 @@ async def run(bot, message):
                 file_name = message.video.file_name
                 try:
                     file_caption = message.caption
-                    file_name = f"<code>{message.video.file_name}</code>\n\n<b>♨️ Join our Groups 👇</b>\n━🇱🇰━◤ <b>iruPC.net</b> ◢━🇱🇰━\n ☯️ @iruPC\n ☯️\n<b>@MoIndex</b>\n ☯️ <b>@Top_Movie_Links</b>\n━🇱🇰━◤ <b>iruPC.net</b> ◢━🇱🇰━"
+                    file_name = f"<code>{message.video.file_name}</code>\n\n<b>@IruPC ‖ @MoIndex</b>\n━🇱🇰━◤ <b>iruPC.net</b> ◢━🇱🇰━"
                 except:
                     file_caption = None
             elif message.document:
-                file_name = f"<code>{message.document.file_name}</code>\n\n<b>♨️ Join our Groups 👇</b>\n━🇱🇰━◤ <b>iruPC.net</b> ◢━🇱🇰━\n ☯️ @iruPC\n ☯️\n<b>@MoIndex</b>\n ☯️ <b>@Top_Movie_Links</b>\n━🇱🇰━◤ <b>iruPC.net</b> ◢━🇱🇰━"
+                file_name = f"<code>{message.document.file_name}</code>\n\n<b>♨️ Join our Groups 👇</b>\n━🇱🇰━◤ <b>iruPC.net</b> ◢━🇱🇰━\n ☯️ <b>@iruPC</b>\n ☯️<b>@MoIndex</b>\n ☯️ <b>@Top_Movie_Links</b>\n━🇱🇰━◤ <b>iruPC.net</b> ◢━🇱🇰━"
                 try:
                     file_caption = message.caption
                 except:
@@ -48,7 +48,7 @@ async def run(bot, message):
                     file_caption = message.caption
                 except:
                     file_caption = None
-                file_name = f"{file_caption}\n\n<b>♨️ Join our Groups 👇</b>\n━🇱🇰━◤ <b>iruPC.net</b> ◢━🇱🇰━\n ☯️ @iruPC\n ☯️\n<b>@MoIndex</b>\n ☯️ <b>@Top_Movie_Links</b>\n━🇱🇰━◤ <b>iruPC.net</b> ◢━🇱🇰━"
+                file_name = f"{file_caption}\n\n<b>@IruPC ‖ @MoIndex</b>\n━🇱🇰━◤ <b>iruPC.net</b> ◢━🇱🇰━"
             elif message.audio:
                 try:
                     file_caption = message.caption
